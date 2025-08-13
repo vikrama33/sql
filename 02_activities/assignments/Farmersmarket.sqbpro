@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="Farmersmarket.db" readonly="0" foreign_keys="0" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="browser pragmas query" current="2"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="8651"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="product" custom_title="0" dock_id="1" table="4,7:mainproduct"/><dock_state state="000000ff00000000fd0000000100000002000005bc0000038efc0100000001fb000000160064006f0063006b00420072006f00770073006500310100000000000005bc0000015c00ffffff000005bc0000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="booth" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="90"/><column index="2" value="108"/><column index="3" value="300"/><column index="4" value="72"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="product" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="69"/><column index="2" value="296"/><column index="3" value="117"/><column index="4" value="126"/><column index="5" value="107"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">-- SELECT
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="Farmersmarket.db" readonly="0" foreign_keys="0" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="browser pragmas query" current="2"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="8651"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/><expanded_item id="4" parent="1"/></tab_structure><tab_browse><table title="product" custom_title="0" dock_id="1" table="4,7:mainproduct"/><dock_state state="000000ff00000000fd00000001000000020000043c000002b6fc0100000001fb000000160064006f0063006b00420072006f007700730065003101000000000000043c0000015c00ffffff0000043c0000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="booth" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="90"/><column index="2" value="108"/><column index="3" value="300"/><column index="4" value="72"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="product" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="69"/><column index="2" value="296"/><column index="3" value="117"/><column index="4" value="126"/><column index="5" value="107"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">-- SELECT
 
 --select everything from the customer TABLE
 SELECT * FROM customer;
@@ -151,4 +151,191 @@ p.product_id
 
 FROM customer_purchases as cp
 LEFT JOIN product as p
-	ON p.product_id=cp.product_id</sql><sql name="assignment1.sql" filename="C:/Users/chait/sql/02_activities/assignments/assignment1.sql">-- Reference to file &quot;C:/Users/chait/sql/02_activities/assignments/assignment1.sql&quot; (not supported by this version) --</sql><current_tab id="6"/></tab_sql></sqlb_project>
+	ON p.product_id=cp.product_id</sql><sql name="assignment1.sql" filename="C:/Users/chait/sql/02_activities/assignments/assignment1.sql">-- Reference to file &quot;C:/Users/chait/sql/02_activities/assignments/assignment1.sql&quot; (not supported by this version) --</sql><sql name="Class work.sql" filename="C:/Users/chait/sql/02_activities/assignments/Class work.sql">-- Reference to file &quot;C:/Users/chait/sql/02_activities/assignments/Class work.sql&quot; (not supported by this version) --</sql><sql name="SQL 9">
+--IFNULL and coalesce &amp; NULLIF
+
+SELECT *
+,IFNULL(product_size,'Unknown') 
+
+--replace with another COLUMN
+,IFNULL(product_size, product_qty_type)
+,coalesce(product_size, product_qty_type)
+,coalesce(product_size,product_qty_type,'missing') -- if the first value is null, then the second value, if that is null, then the third value (missing) 
+
+,IFNULL(IFNULL(product_size, product_qty_type),'missing') -- same as above but with two ifnulls
+
+FROM product;
+
+SELECT *
+,coalesce(product_size,'Unknown') -- we aren't successfully handling the blank value
+--nullif
+,NULLIF(product_size,'') -- find the values in product_size that &quot;blanks&quot; and set them to null
+,coalesce(NULLIF(product_size,''),'Unknown')
+,coalesce(NULLIF(TRIM(product_size),''),'Unknown') -- a trimmed blank so all white space becomes blank '     ' = ''
+
+FROM product
+
+WHERE NULLIF(product_size,'') IS NULL -- capturing BOTH nulls and blanks at the same time!</sql><sql name="SQL 10">--ROW_NUMBER 
+--what product is the highest price per vendor
+
+--outer QUERY
+
+SELECT x.*,product_name
+
+FROM (
+--inner QUERY
+	SELECT 
+	vendor_id,
+	market_date,
+	product_id,
+	original_price,
+	ROW_NUMBER() OVER(PARTITION BY vendor_id ORDER BY original_price DESC) as price_rank
+
+	FROM vendor_inventory
+) x
+INNER JOIN product p 
+	ON x.product_id = p.product_id
+
+WHERE price_rank = 1;
+
+--highest single purchase in a day PER customer 
+
+SELECT * 
+FROM (
+	SELECT 
+	customer_id
+	,product_id
+	,market_date
+	,quantity
+	,quantity*cost_to_customer_per_qty as cost
+	,ROW_NUMBER() OVER(PARTITION BY customer_id ORDER BY quantity*cost_to_customer_per_qty DESC) as sales_rank
+
+	FROM customer_purchases
+) x
+
+
+</sql><sql name="SQL 21">
+-- dense_rank vs rank vs row_number
+
+
+DROP TABLE IF EXISTS temp.row_rank_dense;
+
+CREATE TEMP TABLE IF NOT EXISTS temp.row_rank_dense
+(
+emp_id INT,
+salary INT
+);
+
+INSERT INTO temp.row_rank_dense
+VALUES(1,200000),
+        (2,200000),
+        (3, 160000),
+		(4, 120000),
+		(5, 125000),
+		(6, 165000),
+		(7, 230000),
+		(8, 100000),
+		(9, 165000),
+		(10, 100000);
+    
+    	
+SELECT *
+,row_number() OVER(ORDER BY salary desc) as [row_number]
+,rank() OVER(ORDER BY salary desc) as [rank]
+,dense_rank() OVER(ORDER BY salary desc) as [dense_rank]
+
+FROM row_rank_dense</sql><sql name="SQL 22*">
+--ntile 4, 5, 100
+
+--make quartiles, qunitiles, percentiles
+
+SELECT * 
+--,NTILE(4) OVER (PARTITION BY vendor_name ORDER BY sales) as quartiles
+--,NTILE(5) OVER (PARTITION BY vendor_name ORDER BY sales) as quantiles
+--,NTILE(100) OVER (PARTITION BY vendor_name ORDER BY sales) as percentile
+
+,NTILE(4) OVER (PARTITION BY vendor_name,product_id ORDER BY sales) 
+
+FROM (
+	SELECT 
+	md.market_date
+	,market_day
+	,market_week
+	,vendor_name
+	,product_id
+	,sum(quantity*cost_to_customer_per_qty) as sales
+
+	FROM market_date_info md
+	JOIN customer_purchases cp
+		ON md.market_date = cp.market_date
+	JOIN vendor v
+		ON cp.vendor_id = v.vendor_id
+		
+	GROUP By md.market_date, v.vendor_id
+) x</sql><sql name="SQL 23*">
+DROP TABLE IF EXISTS temp.store1; 
+CREATE TEMP TABLE IF NOT EXISTS temp.store1
+(
+costume TEXT,
+quantity INT
+);
+
+INSERT INTO temp.store1
+VALUES(&quot;tiger&quot;,6),
+        (&quot;elephant&quot;,2),
+        (&quot;princess&quot;, 4);
+
+
+DROP TABLE IF EXISTS temp.store2;
+CREATE TEMP TABLE IF NOT EXISTS temp.store2
+(
+costume TEXT,
+quantity INT
+);
+
+INSERT INTO temp.store2
+VALUES(&quot;tiger&quot;,2),
+	(&quot;dancer&quot;,7),
+	(&quot;superhero&quot;, 5);
+	
+
+
+SELECT costume, quantity
+FROM store1 s1
+LEFT JOIN store2 s2 on s1.costume=s2.costume
+
+SELECT s2.costume,s1.quantity,s2.quantity
+
+</sql><sql name="SQL 24*">
+-- INTERSECT / EXCEPT
+
+-- products that have been sold (e.g. are in the customer_purchases and product)
+
+SELECT product_id
+FROM customer_purchases
+INTERSECT
+SELECT product_id
+FROM product;
+
+-- products that have NOT been sold (e.g. are NOT in customer_purchases even though they are in product)
+SELECT product_name, x.product_id
+FROM 
+(
+	SELECT product_id
+	FROM product
+	EXCEPT
+	SELECT product_id
+	FROM customer_purchases
+) x
+JOIN product p on x.product_id = p.product_id;
+
+-- sold products that are not in the products table ... not possible
+-- NOTHING 
+SELECT product_id
+FROM customer_purchases
+EXCEPT
+SELECT product_id
+FROM product
+
+
+</sql><current_tab id="13"/></tab_sql></sqlb_project>
