@@ -56,7 +56,7 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 ```
 Your answer...
 ```
-
+My answer! 
 ***
 
 ## Section 2:
