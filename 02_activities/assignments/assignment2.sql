@@ -135,31 +135,41 @@ HINT: There are a possibly a few ways to do this query, but if you're struggling
 3) Query the second temp table twice, once for the best day, once for the worst day, 
 with a UNION binding them. */
 
-
 WITH sales_by_date AS (
     SELECT 
         market_date,
         SUM(sales_amount) AS total_sales
-    FROM customer_purchases
+    FROM sales
     GROUP BY market_date
-),
-ranked AS (
+)
+
+, ranked_sales AS (
     SELECT 
         market_date,
         total_sales,
-        RANK() OVER (ORDER BY total_sales DESC) AS best_rank,
-        RANK() OVER (ORDER BY total_sales ASC)  AS worst_rank
+        RANK() OVER (ORDER BY total_sales DESC) AS sales_rank_desc,
+        RANK() OVER (ORDER BY total_sales ASC)  AS sales_rank_asc
     FROM sales_by_date
 )
-SELECT 'Best Day' AS label, market_date, total_sales
-FROM ranked
-WHERE best_rank = 1
+
+SELECT 
+    market_date,
+    total_sales,
+    'Best Day' AS label
+FROM ranked_sales
+WHERE sales_rank_desc = 1
 
 UNION
 
-SELECT 'Worst Day' AS label, market_date, total_sales
-FROM ranked
-WHERE worst_rank = 1;
+SELECT 
+    market_date,
+    total_sales,
+    'Worst Day' AS label
+FROM ranked_sales
+WHERE sales_rank_asc = 1;
+
+
+
 
 
 /* SECTION 3 */
@@ -273,3 +283,36 @@ SET current_quantity = (
     LIMIT 1
 )
 WHERE pu.product_qty_type = 'unit';
+
+# Prompt 3 from Section 2
+
+SELECT 
+    customer_id,
+    product_id,
+    market_date,
+    COUNT(*) OVER (
+        PARTITION BY customer_id, product_id
+    ) AS times_purchased
+FROM customer_purchases;
+
+
+# Prompt 3 from Section 1
+
+SELECT 
+    product_name || ', ' || COALESCE(product_size, '') || 
+    ' (' || COALESCE(product_qty_type, 'unit') || ')'
+FROM product;
+
+# Answer for Promt -3 
+
+the product table has:
+
+product_name	product_size	product_qty_type
+Apple Pie	         10"	       unit
+Sweet Potatoes	    NULL	       NULL
+
+Then the query gives:
+
+product_string
+Apple Pie, 10" (unit)
+Sweet Potatoes, (unit)
