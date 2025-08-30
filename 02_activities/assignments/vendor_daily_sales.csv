@@ -1,0 +1,355 @@
+market_date,market_day,market_week,market_year,vendor_name,sales
+2022-04-05,Wednesday,15,2022,Marco's Peppers,76
+2022-04-05,Wednesday,15,2022,Annie's Pies,399.0
+2022-04-08,Saturday,15,2022,Marco's Peppers,112
+2022-04-08,Saturday,15,2022,Annie's Pies,437.5
+2022-04-12,Wednesday,16,2022,Marco's Peppers,92
+2022-04-12,Wednesday,16,2022,Annie's Pies,413.0
+2022-04-15,Saturday,16,2022,Marco's Peppers,104
+2022-04-15,Saturday,16,2022,Annie's Pies,273.0
+2022-04-19,Wednesday,17,2022,Marco's Peppers,122.5
+2022-04-19,Wednesday,17,2022,Annie's Pies,371.0
+2022-04-22,Saturday,17,2022,Marco's Peppers,80
+2022-04-22,Saturday,17,2022,Annie's Pies,375.5
+2022-04-26,Wednesday,18,2022,Marco's Peppers,108
+2022-04-26,Wednesday,18,2022,Annie's Pies,258.0
+2022-04-29,Saturday,18,2022,Marco's Peppers,101.5
+2022-04-29,Saturday,18,2022,Annie's Pies,343.0
+2022-05-03,Wednesday,19,2022,Marco's Peppers,84
+2022-05-03,Wednesday,19,2022,Annie's Pies,439.0
+2022-05-06,Saturday,19,2022,Marco's Peppers,100
+2022-05-06,Saturday,19,2022,Annie's Pies,397.0
+2022-05-10,Wednesday,20,2022,Marco's Peppers,88
+2022-05-10,Wednesday,20,2022,Annie's Pies,406.5
+2022-05-13,Saturday,20,2022,Marco's Peppers,116
+2022-05-13,Saturday,20,2022,Annie's Pies,364.0
+2022-05-17,Wednesday,21,2022,Marco's Peppers,52
+2022-05-17,Wednesday,21,2022,Annie's Pies,380.5
+2022-05-20,Saturday,21,2022,Marco's Peppers,120
+2022-05-20,Saturday,21,2022,Annie's Pies,367.5
+2022-05-24,Wednesday,22,2022,Marco's Peppers,88
+2022-05-24,Wednesday,22,2022,Annie's Pies,408.0
+2022-05-27,Saturday,22,2022,Marco's Peppers,48
+2022-05-27,Saturday,22,2022,Annie's Pies,336.5
+2022-05-31,Wednesday,23,2022,Marco's Peppers,120
+2022-05-31,Wednesday,23,2022,Annie's Pies,513.0
+2022-06-03,Saturday,23,2022,Fields of Corn,8.6
+2022-06-03,Saturday,23,2022,Marco's Peppers,88
+2022-06-03,Saturday,23,2022,Annie's Pies,395.5
+2022-06-07,Wednesday,24,2022,Fields of Corn,15.5
+2022-06-07,Wednesday,24,2022,Marco's Peppers,100
+2022-06-07,Wednesday,24,2022,Annie's Pies,255.0
+2022-06-10,Saturday,24,2022,Fields of Corn,27.0
+2022-06-10,Saturday,24,2022,Marco's Peppers,68
+2022-06-10,Saturday,24,2022,Annie's Pies,354.0
+2022-06-14,Wednesday,25,2022,Fields of Corn,22.7
+2022-06-14,Wednesday,25,2022,Marco's Peppers,104
+2022-06-14,Wednesday,25,2022,Annie's Pies,387.0
+2022-06-17,Saturday,25,2022,Fields of Corn,24.5
+2022-06-17,Saturday,25,2022,Marco's Peppers,124
+2022-06-17,Saturday,25,2022,Annie's Pies,423.0
+2022-06-21,Wednesday,26,2022,Fields of Corn,26.2
+2022-06-21,Wednesday,26,2022,Marco's Peppers,84
+2022-06-21,Wednesday,26,2022,Annie's Pies,318.5
+2022-06-24,Saturday,26,2022,Fields of Corn,15.0
+2022-06-24,Saturday,26,2022,Marco's Peppers,76
+2022-06-24,Saturday,26,2022,Annie's Pies,349.5
+2022-06-28,Wednesday,27,2022,Fields of Corn,37.1
+2022-06-28,Wednesday,27,2022,Marco's Peppers,116
+2022-06-28,Wednesday,27,2022,Annie's Pies,315.0
+2022-07-01,Saturday,27,2022,Fields of Corn,18.6
+2022-07-01,Saturday,27,2022,Marco's Peppers,72
+2022-07-01,Saturday,27,2022,Annie's Pies,493.0
+2022-07-05,Wednesday,28,2022,Fields of Corn,9.1
+2022-07-05,Wednesday,28,2022,Marco's Peppers,227.6668
+2022-07-05,Wednesday,28,2022,Annie's Pies,258.0
+2022-07-08,Saturday,28,2022,Fields of Corn,17.1
+2022-07-08,Saturday,28,2022,Marco's Peppers,205.5104
+2022-07-08,Saturday,28,2022,Annie's Pies,297.0
+2022-07-12,Wednesday,29,2022,Fields of Corn,19.7
+2022-07-12,Wednesday,29,2022,Marco's Peppers,160.0159
+2022-07-12,Wednesday,29,2022,Annie's Pies,246.5
+2022-07-15,Saturday,29,2022,Fields of Corn,9.5
+2022-07-15,Saturday,29,2022,Marco's Peppers,192.3783
+2022-07-15,Saturday,29,2022,Annie's Pies,266.5
+2022-07-19,Wednesday,30,2022,Fields of Corn,14.1
+2022-07-19,Wednesday,30,2022,Marco's Peppers,241.8654
+2022-07-19,Wednesday,30,2022,Annie's Pies,292.0
+2022-07-22,Saturday,30,2022,Fields of Corn,20.0
+2022-07-22,Saturday,30,2022,Marco's Peppers,138.7969
+2022-07-22,Saturday,30,2022,Annie's Pies,359.5
+2022-07-26,Wednesday,31,2022,Fields of Corn,15.1
+2022-07-26,Wednesday,31,2022,Marco's Peppers,140.9416
+2022-07-26,Wednesday,31,2022,Annie's Pies,240.5
+2022-07-29,Saturday,31,2022,Fields of Corn,17.0
+2022-07-29,Saturday,31,2022,Marco's Peppers,193.897
+2022-07-29,Saturday,31,2022,Annie's Pies,400.0
+2022-08-02,Wednesday,32,2022,Fields of Corn,16.1
+2022-08-02,Wednesday,32,2022,Marco's Peppers,190.2302
+2022-08-02,Wednesday,32,2022,Annie's Pies,169.5
+2022-08-05,Saturday,32,2022,Fields of Corn,17.5
+2022-08-05,Saturday,32,2022,Marco's Peppers,119.891
+2022-08-05,Saturday,32,2022,Annie's Pies,313.5
+2022-08-09,Wednesday,33,2022,Fields of Corn,15.8
+2022-08-09,Wednesday,33,2022,Marco's Peppers,185.3129
+2022-08-09,Wednesday,33,2022,Annie's Pies,244.5
+2022-08-12,Saturday,33,2022,Fields of Corn,17.0
+2022-08-12,Saturday,33,2022,Marco's Peppers,207.1722
+2022-08-12,Saturday,33,2022,Annie's Pies,201.0
+2022-08-16,Wednesday,34,2022,Fields of Corn,14.0
+2022-08-16,Wednesday,34,2022,Marco's Peppers,224.9706
+2022-08-16,Wednesday,34,2022,Annie's Pies,321.5
+2022-08-19,Saturday,34,2022,Fields of Corn,15.7
+2022-08-19,Saturday,34,2022,Marco's Peppers,90.8223
+2022-08-19,Saturday,34,2022,Annie's Pies,364.0
+2022-08-23,Wednesday,35,2022,Fields of Corn,5.5
+2022-08-23,Wednesday,35,2022,Marco's Peppers,128.9115
+2022-08-23,Wednesday,35,2022,Annie's Pies,202.5
+2022-08-26,Saturday,35,2022,Fields of Corn,18.8
+2022-08-26,Saturday,35,2022,Marco's Peppers,120.0365
+2022-08-26,Saturday,35,2022,Annie's Pies,336.5
+2022-08-30,Wednesday,36,2022,Fields of Corn,13.1
+2022-08-30,Wednesday,36,2022,Marco's Peppers,185.0544
+2022-08-30,Wednesday,36,2022,Annie's Pies,349.5
+2022-09-02,Saturday,36,2022,Fields of Corn,22.5
+2022-09-02,Saturday,36,2022,Marco's Peppers,177.1426
+2022-09-02,Saturday,36,2022,Annie's Pies,351.5
+2022-09-06,Wednesday,37,2022,Fields of Corn,12.5
+2022-09-06,Wednesday,37,2022,Marco's Peppers,194.091
+2022-09-06,Wednesday,37,2022,Annie's Pies,251.5
+2022-09-09,Saturday,37,2022,Fields of Corn,11.7
+2022-09-09,Saturday,37,2022,Marco's Peppers,135.3516
+2022-09-09,Saturday,37,2022,Annie's Pies,234
+2022-09-13,Wednesday,38,2022,Fields of Corn,14.1
+2022-09-13,Wednesday,38,2022,Marco's Peppers,263.6891
+2022-09-13,Wednesday,38,2022,Annie's Pies,258.0
+2022-09-16,Saturday,38,2022,Fields of Corn,13.5
+2022-09-16,Saturday,38,2022,Marco's Peppers,135.5181
+2022-09-16,Saturday,38,2022,Annie's Pies,442.5
+2022-09-20,Wednesday,39,2022,Fields of Corn,12.0
+2022-09-20,Wednesday,39,2022,Marco's Peppers,101.8617
+2022-09-20,Wednesday,39,2022,Annie's Pies,305.5
+2022-09-23,Saturday,39,2022,Fields of Corn,10.5
+2022-09-23,Saturday,39,2022,Marco's Peppers,193.1832
+2022-09-23,Saturday,39,2022,Annie's Pies,212.0
+2022-09-27,Wednesday,40,2022,Fields of Corn,10.5
+2022-09-27,Wednesday,40,2022,Marco's Peppers,62.8729
+2022-09-27,Wednesday,40,2022,Annie's Pies,356.0
+2022-09-30,Saturday,40,2022,Fields of Corn,11.5
+2022-09-30,Saturday,40,2022,Marco's Peppers,149.6747
+2022-09-30,Saturday,40,2022,Annie's Pies,310.5
+2022-10-04,Wednesday,41,2022,Marco's Peppers,100
+2022-10-04,Wednesday,41,2022,Annie's Pies,395.0
+2022-10-07,Saturday,41,2022,Marco's Peppers,88
+2022-10-07,Saturday,41,2022,Annie's Pies,429.5
+2022-10-11,Wednesday,42,2022,Marco's Peppers,88
+2022-10-11,Wednesday,42,2022,Annie's Pies,367.5
+2022-10-14,Saturday,42,2022,Marco's Peppers,116
+2022-10-14,Saturday,42,2022,Annie's Pies,393.5
+2022-10-18,Wednesday,43,2022,Marco's Peppers,76
+2022-10-18,Wednesday,43,2022,Annie's Pies,372.0
+2022-10-21,Saturday,43,2022,Marco's Peppers,100
+2022-10-21,Saturday,43,2022,Annie's Pies,493.0
+2022-10-25,Wednesday,44,2022,Marco's Peppers,160
+2022-10-25,Wednesday,44,2022,Annie's Pies,338.0
+2022-10-28,Saturday,44,2022,Marco's Peppers,104
+2022-10-28,Saturday,44,2022,Annie's Pies,414.5
+2022-11-01,Wednesday,45,2022,Marco's Peppers,140
+2022-11-01,Wednesday,45,2022,Annie's Pies,346.0
+2022-11-04,Saturday,45,2022,Marco's Peppers,160
+2022-11-04,Saturday,45,2022,Annie's Pies,361.0
+2022-11-08,Wednesday,46,2022,Marco's Peppers,136
+2022-11-08,Wednesday,46,2022,Annie's Pies,346.5
+2022-11-11,Saturday,46,2022,Marco's Peppers,88
+2022-11-11,Saturday,46,2022,Annie's Pies,370.5
+2022-11-15,Wednesday,47,2022,Marco's Peppers,72
+2022-11-15,Wednesday,47,2022,Annie's Pies,344.5
+2022-11-18,Saturday,47,2022,Marco's Peppers,80
+2022-11-18,Saturday,47,2022,Annie's Pies,652.5
+2022-11-22,Wednesday,48,2022,Marco's Peppers,136
+2022-11-22,Wednesday,48,2022,Annie's Pies,720.5
+2022-11-25,Saturday,48,2022,Marco's Peppers,44
+2022-11-25,Saturday,48,2022,Annie's Pies,749.0
+2022-11-29,Wednesday,49,2022,Marco's Peppers,16
+2022-11-29,Wednesday,49,2022,Annie's Pies,582.0
+2022-12-02,Saturday,49,2022,Marco's Peppers,108
+2022-12-02,Saturday,49,2022,Annie's Pies,634.5
+2022-12-06,Wednesday,50,2022,Marco's Peppers,76
+2022-12-06,Wednesday,50,2022,Annie's Pies,449.0
+2022-12-09,Saturday,50,2022,Marco's Peppers,136
+2022-12-09,Saturday,50,2022,Annie's Pies,437.5
+2022-12-13,Wednesday,51,2022,Marco's Peppers,128
+2022-12-13,Wednesday,51,2022,Annie's Pies,344.5
+2022-12-16,Saturday,51,2022,Marco's Peppers,96
+2022-12-16,Saturday,51,2022,Annie's Pies,352.5
+2022-12-20,Wednesday,52,2022,Marco's Peppers,124
+2022-12-20,Wednesday,52,2022,Annie's Pies,855.0
+2022-12-23,Saturday,52,2022,Marco's Peppers,92
+2022-12-23,Saturday,52,2022,Annie's Pies,665.5
+2022-12-27,Wednesday,53,2022,Marco's Peppers,80
+2022-12-27,Wednesday,53,2022,Annie's Pies,701.5
+2022-12-30,Saturday,53,2022,Marco's Peppers,76
+2022-12-30,Saturday,53,2022,Annie's Pies,765.0
+2023-03-07,Wednesday,10,2023,Marco's Peppers,20
+2023-03-07,Wednesday,10,2023,Annie's Pies,344.5
+2023-03-10,Saturday,10,2023,Marco's Peppers,112
+2023-03-10,Saturday,10,2023,Annie's Pies,380.5
+2023-03-14,Wednesday,11,2023,Marco's Peppers,116
+2023-03-14,Wednesday,11,2023,Annie's Pies,398.5
+2023-03-17,Saturday,11,2023,Marco's Peppers,112
+2023-03-17,Saturday,11,2023,Annie's Pies,317.0
+2023-03-21,Wednesday,12,2023,Marco's Peppers,80
+2023-03-21,Wednesday,12,2023,Annie's Pies,465.5
+2023-03-24,Saturday,12,2023,Marco's Peppers,120
+2023-03-24,Saturday,12,2023,Annie's Pies,333.5
+2023-03-28,Wednesday,13,2023,Marco's Peppers,128
+2023-03-28,Wednesday,13,2023,Annie's Pies,349.5
+2023-03-31,Saturday,13,2023,Marco's Peppers,126.0
+2023-03-31,Saturday,13,2023,Annie's Pies,330.0
+2023-04-04,Wednesday,14,2023,Marco's Peppers,112
+2023-04-04,Wednesday,14,2023,Annie's Pies,237.0
+2023-04-07,Saturday,14,2023,Marco's Peppers,68
+2023-04-07,Saturday,14,2023,Annie's Pies,204.5
+2023-04-11,Wednesday,15,2023,Marco's Peppers,100
+2023-04-11,Wednesday,15,2023,Annie's Pies,279.0
+2023-04-14,Saturday,15,2023,Marco's Peppers,128
+2023-04-14,Saturday,15,2023,Annie's Pies,214.0
+2023-04-18,Wednesday,16,2023,Marco's Peppers,108
+2023-04-18,Wednesday,16,2023,Annie's Pies,202.5
+2023-04-21,Saturday,16,2023,Marco's Peppers,144
+2023-04-21,Saturday,16,2023,Annie's Pies,139.0
+2023-04-25,Wednesday,17,2023,Marco's Peppers,126.0
+2023-04-25,Wednesday,17,2023,Annie's Pies,280.5
+2023-04-28,Saturday,17,2023,Marco's Peppers,122.5
+2023-04-28,Saturday,17,2023,Annie's Pies,183.0
+2023-05-02,Wednesday,18,2023,Marco's Peppers,108
+2023-05-02,Wednesday,18,2023,Annie's Pies,266.0
+2023-05-05,Saturday,18,2023,Marco's Peppers,68
+2023-05-05,Saturday,18,2023,Annie's Pies,398.5
+2023-05-09,Wednesday,19,2023,Marco's Peppers,120
+2023-05-09,Wednesday,19,2023,Annie's Pies,393.5
+2023-05-12,Saturday,19,2023,Marco's Peppers,94.5
+2023-05-12,Saturday,19,2023,Annie's Pies,486.5
+2023-05-16,Wednesday,20,2023,Marco's Peppers,12
+2023-05-16,Wednesday,20,2023,Annie's Pies,367.5
+2023-05-19,Saturday,20,2023,Marco's Peppers,48
+2023-05-19,Saturday,20,2023,Annie's Pies,392.0
+2023-05-23,Wednesday,21,2023,Marco's Peppers,104
+2023-05-23,Wednesday,21,2023,Annie's Pies,326.5
+2023-05-26,Saturday,21,2023,Marco's Peppers,88
+2023-05-26,Saturday,21,2023,Annie's Pies,280.5
+2023-05-30,Wednesday,22,2023,Marco's Peppers,88
+2023-05-30,Wednesday,22,2023,Annie's Pies,353.0
+2023-06-02,Saturday,22,2023,Marco's Peppers,124
+2023-06-02,Saturday,22,2023,Annie's Pies,390.0
+2023-06-06,Wednesday,23,2023,Fields of Corn,17.5
+2023-06-06,Wednesday,23,2023,Marco's Peppers,16
+2023-06-06,Wednesday,23,2023,Annie's Pies,364.5
+2023-06-09,Saturday,23,2023,Fields of Corn,21.5
+2023-06-09,Saturday,23,2023,Marco's Peppers,84
+2023-06-09,Saturday,23,2023,Annie's Pies,395.0
+2023-06-13,Wednesday,24,2023,Fields of Corn,17.0
+2023-06-13,Wednesday,24,2023,Marco's Peppers,132
+2023-06-13,Wednesday,24,2023,Annie's Pies,333.0
+2023-06-16,Saturday,24,2023,Fields of Corn,19.5
+2023-06-16,Saturday,24,2023,Marco's Peppers,108
+2023-06-16,Saturday,24,2023,Annie's Pies,395.0
+2023-06-20,Wednesday,25,2023,Fields of Corn,19.1
+2023-06-20,Wednesday,25,2023,Marco's Peppers,124
+2023-06-20,Wednesday,25,2023,Annie's Pies,333.0
+2023-06-23,Saturday,25,2023,Fields of Corn,25.0
+2023-06-23,Saturday,25,2023,Marco's Peppers,94.5
+2023-06-23,Saturday,25,2023,Annie's Pies,284.0
+2023-06-27,Wednesday,26,2023,Fields of Corn,34.6
+2023-06-27,Wednesday,26,2023,Marco's Peppers,80
+2023-06-27,Wednesday,26,2023,Annie's Pies,405.0
+2023-06-30,Saturday,26,2023,Fields of Corn,17.4
+2023-06-30,Saturday,26,2023,Marco's Peppers,120
+2023-06-30,Saturday,26,2023,Annie's Pies,383.5
+2023-07-04,Wednesday,27,2023,Fields of Corn,12.6
+2023-07-04,Wednesday,27,2023,Marco's Peppers,201.6522
+2023-07-04,Wednesday,27,2023,Annie's Pies,152.0
+2023-07-07,Saturday,27,2023,Fields of Corn,25.7
+2023-07-07,Saturday,27,2023,Marco's Peppers,234.8782
+2023-07-07,Saturday,27,2023,Annie's Pies,194.0
+2023-07-11,Wednesday,28,2023,Fields of Corn,8.0
+2023-07-11,Wednesday,28,2023,Marco's Peppers,227.7013
+2023-07-11,Wednesday,28,2023,Annie's Pies,253.0
+2023-07-14,Saturday,28,2023,Fields of Corn,26.8
+2023-07-14,Saturday,28,2023,Marco's Peppers,182.7978
+2023-07-14,Saturday,28,2023,Annie's Pies,224.0
+2023-07-18,Wednesday,29,2023,Fields of Corn,29.0
+2023-07-18,Wednesday,29,2023,Marco's Peppers,249.4577
+2023-07-18,Wednesday,29,2023,Annie's Pies,168.5
+2023-07-21,Saturday,29,2023,Fields of Corn,6.6
+2023-07-21,Saturday,29,2023,Marco's Peppers,161.4858
+2023-07-21,Saturday,29,2023,Annie's Pies,284.0
+2023-07-25,Wednesday,30,2023,Fields of Corn,23.7
+2023-07-25,Wednesday,30,2023,Marco's Peppers,166.4949
+2023-07-25,Wednesday,30,2023,Annie's Pies,162
+2023-07-28,Saturday,30,2023,Fields of Corn,18.1
+2023-07-28,Saturday,30,2023,Marco's Peppers,220.7496
+2023-07-28,Saturday,30,2023,Annie's Pies,235.0
+2023-08-01,Wednesday,31,2023,Fields of Corn,18.0
+2023-08-01,Wednesday,31,2023,Marco's Peppers,149.1588
+2023-08-01,Wednesday,31,2023,Annie's Pies,186.5
+2023-08-04,Saturday,31,2023,Fields of Corn,7.0
+2023-08-04,Saturday,31,2023,Marco's Peppers,108.6177
+2023-08-04,Saturday,31,2023,Annie's Pies,248.0
+2023-08-08,Wednesday,32,2023,Fields of Corn,19.7
+2023-08-08,Wednesday,32,2023,Marco's Peppers,174.7252
+2023-08-08,Wednesday,32,2023,Annie's Pies,219.0
+2023-08-11,Saturday,32,2023,Fields of Corn,19.5
+2023-08-11,Saturday,32,2023,Marco's Peppers,216.2844
+2023-08-11,Saturday,32,2023,Annie's Pies,338.0
+2023-08-15,Wednesday,33,2023,Fields of Corn,22.0
+2023-08-15,Wednesday,33,2023,Marco's Peppers,197.8289
+2023-08-15,Wednesday,33,2023,Annie's Pies,318.5
+2023-08-18,Saturday,33,2023,Fields of Corn,24.6
+2023-08-18,Saturday,33,2023,Marco's Peppers,198.9626
+2023-08-18,Saturday,33,2023,Annie's Pies,287.0
+2023-08-22,Wednesday,34,2023,Fields of Corn,30.0
+2023-08-22,Wednesday,34,2023,Marco's Peppers,141.4233
+2023-08-22,Wednesday,34,2023,Annie's Pies,405.0
+2023-08-25,Saturday,34,2023,Fields of Corn,19.8
+2023-08-25,Saturday,34,2023,Marco's Peppers,210.2049
+2023-08-25,Saturday,34,2023,Annie's Pies,189.5
+2023-08-29,Wednesday,35,2023,Fields of Corn,21.5
+2023-08-29,Wednesday,35,2023,Marco's Peppers,211.5845
+2023-08-29,Wednesday,35,2023,Annie's Pies,282.5
+2023-09-01,Saturday,35,2023,Fields of Corn,10.0
+2023-09-01,Saturday,35,2023,Marco's Peppers,237.4092
+2023-09-01,Saturday,35,2023,Annie's Pies,201.0
+2023-09-05,Wednesday,36,2023,Fields of Corn,11.6
+2023-09-05,Wednesday,36,2023,Marco's Peppers,213.6328
+2023-09-05,Wednesday,36,2023,Annie's Pies,320.0
+2023-09-08,Saturday,36,2023,Fields of Corn,17.0
+2023-09-08,Saturday,36,2023,Marco's Peppers,208.849
+2023-09-08,Saturday,36,2023,Annie's Pies,134.0
+2023-09-12,Wednesday,37,2023,Fields of Corn,22.0
+2023-09-12,Wednesday,37,2023,Marco's Peppers,238.3834
+2023-09-12,Wednesday,37,2023,Annie's Pies,415.0
+2023-09-15,Saturday,37,2023,Fields of Corn,3.0
+2023-09-15,Saturday,37,2023,Marco's Peppers,179.1215
+2023-09-15,Saturday,37,2023,Annie's Pies,139.0
+2023-09-19,Wednesday,38,2023,Fields of Corn,7.5
+2023-09-19,Wednesday,38,2023,Marco's Peppers,190.8713
+2023-09-19,Wednesday,38,2023,Annie's Pies,351.0
+2023-09-22,Saturday,38,2023,Fields of Corn,8.0
+2023-09-22,Saturday,38,2023,Marco's Peppers,297.4238
+2023-09-22,Saturday,38,2023,Annie's Pies,240.0
+2023-09-26,Wednesday,39,2023,Fields of Corn,18.1
+2023-09-26,Wednesday,39,2023,Marco's Peppers,109.1197
+2023-09-26,Wednesday,39,2023,Annie's Pies,294.0
+2023-09-29,Saturday,39,2023,Fields of Corn,11.0
+2023-09-29,Saturday,39,2023,Marco's Peppers,192.1953
+2023-09-29,Saturday,39,2023,Annie's Pies,241.5
+2023-10-03,Wednesday,40,2023,Fields of Corn,12.6
+2023-10-03,Wednesday,40,2023,Marco's Peppers,251.6641
+2023-10-03,Wednesday,40,2023,Annie's Pies,260.0
+2023-10-06,Saturday,40,2023,Marco's Peppers,68
+2023-10-06,Saturday,40,2023,Annie's Pies,454.0
+2023-10-10,Wednesday,41,2023,Marco's Peppers,91.0
+2023-10-10,Wednesday,41,2023,Annie's Pies,501.5
+2023-10-13,Saturday,41,2023,Marco's Peppers,105.0
+2023-10-13,Saturday,41,2023,Annie's Pies,490.0

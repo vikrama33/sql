@@ -1,341 +1,151 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="Farmersmarket.db" readonly="0" foreign_keys="0" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="browser pragmas query" current="2"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="8651"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/><expanded_item id="4" parent="1"/></tab_structure><tab_browse><table title="product" custom_title="0" dock_id="1" table="4,7:mainproduct"/><dock_state state="000000ff00000000fd00000001000000020000043c000002b6fc0100000001fb000000160064006f0063006b00420072006f007700730065003101000000000000043c0000015c00ffffff0000043c0000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="booth" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="90"/><column index="2" value="108"/><column index="3" value="300"/><column index="4" value="72"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="product" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="69"/><column index="2" value="296"/><column index="3" value="117"/><column index="4" value="126"/><column index="5" value="107"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">-- SELECT
-
---select everything from the customer TABLE
-SELECT * FROM customer;
-
---use sql as a calculator
-SELECT 1+1,10*5,pi();
-
---add static value
-SELECT 2025 as this_year, 'August' as this_month, customer_id
-FROM customer;
-
---add an order by and limit
-SELECT*
-FROM customer
-ORDER BY customer_first_name
-LIMIT 10;
-
--- select multiple columns
-SELECT customer_id, customer_first_name
-FROM customer;
-
-SELECT 10*5
-from customer</sql><sql name="SQL 2">--WHERE
-
-SELECT * FROM customer
-WHERE customer_id = 1
-OR customer_id = 2; --1 or 2
---AND customer_id = 2 -- returns nothing
-
---IN 
-SELECT * FROM customer
-WHERE customer_id IN (3,4,5) -- only customers 3,4,5
-OR customer_postal_code IN ('M4H','M1L'); -- customers in these postal codes
-
---LIKE
---all the peppers
-SELECT * FROM product
-WHERE product_name LIKE '%peppers%';
-
--- customer with a last name starting with a
-SELECT * FROM customer
-WHERE customer_last_name LIKE 'a%';
-
---NULLS and Blanks
-SELECT * FROM product
-WHERE product_size IS NULL
-OR product_size='';  -- two single quotes, &quot;blanks&quot;, diffrent from nulls
-
-SELECT * FROM customer
-WHERE customer_id BETWEEN 1 AND 20</sql><sql name="SQL 3">--CASE
-
---add some logic to determine which vendors come on which days
-SELECT * 
-,CASE WHEN vendor_type='Fresh Focused'THEN'Wednesday'
-	WHEN vendor_type='Prepared Foods'THEN'Thursday'
-END as Day_of_speciality
---pie day, otherwise noting
-,CASE WHEN vendor_name=&quot;Annie's Pies&quot; 
-	THEN 'annie is the best'
-	END as annie_is_the_king
-,CASE WHEN vendor_name LIKE '%pie%'
-THEN'Wednesday'
-ELSE'Friday'
-END as pie_day	 
-FROM vendor</sql><sql name="SQL 4">--DISTINCT
-
---4221 rows
-SELECT customer_id FROM customer_purchases;
-
---with distinct 26 rows of various cust_ids
-SELECT DISTINCT customer_id FROM customer_purchases;
-
---150 days the market was open
-SELECT market_day
-FROM market_date_info;
-
---market is only open wed and sat
-SELECT DISTINCT vendor_id
-FROM customer_purchases;
-
-/*which vendor has sold products to a customer?*/ 
-SELECT DISTINCT vendor_id
-FROM customer_purchases;
-
-/*which vendor has sold products to a customer ...and which products was it?*/  --3 rows
-SELECT DISTINCT vendor_id, product_id
-FROM customer_purchases;
-
-/*which vendor has sold products to a customer ...and which products was it?*/  --3 rows
-SELECT DISTINCT vendor_id, product_id
-FROM customer_purchases;
-
-/*which vendor has sold products to a customer ...and which products was it and to whom was it sold?*/  --3 rows
-SELECT DISTINCT vendor_id, product_id, customer_id 
-FROM customer_purchases
-ORDER BY product_id ASC, customer_id DESC</sql><sql name="SQL 5">--INNER JOIN
---INNEr JOIN without an alias
-
---get product names alongside customer_purchases .. only products that a customer purchased
-SELECT
-product_name, -- come from product tale
-vendor_id,  -- comeing form customer_purchase table below
-market_date,
-customer_id,
-customer_purchases.product_id
-
-
-FROM customer_purchases
-INNER JOIN product
-	ON customer_purchases.product_id
-	
-	
-	--  which vendor has sold products to a customer AND which products was it AND to whom it sold
-	
-SELECT DISTINCT vendor_id,
-customer_id,
-customer_first_name,
-customer_last_name,
-product_id
-
-
-FROM customer_purchases as cp
-INNER JOIN customer as c
-	ON c.customer_id = cp.customer_id
-	
-
-
-	
-</sql><sql name="SQL 6">-- LEFT JOIN
-
---there are productss that have been bouhght, but are there products that have not been bought?
-
-SELECT DISTINCT
-p.product_id
-,cp.product_id
-,product_name
-
-FROM product as p
-LEFT JOIN customer_purchases as cp
-	ON p.product_id=cp.product_id
-	
-WHERE cp.product_id IS NULL;  --only shows product ids that have not been sold
-
----directions matter
---this shows ONLY products that have been sold becuse there are no products id in cp that arent in product
-SELECT DISTINCT
-p.product_id
-,cp.product_id as [cp.product_id]
-,product_name
-
-FROM customer_purchases as cp
-LEFT JOIN product as p
-	ON p.product_id=cp.product_id</sql><sql name="assignment1.sql" filename="C:/Users/chait/sql/02_activities/assignments/assignment1.sql">-- Reference to file &quot;C:/Users/chait/sql/02_activities/assignments/assignment1.sql&quot; (not supported by this version) --</sql><sql name="Class work.sql" filename="C:/Users/chait/sql/02_activities/assignments/Class work.sql">-- Reference to file &quot;C:/Users/chait/sql/02_activities/assignments/Class work.sql&quot; (not supported by this version) --</sql><sql name="SQL 9">
---IFNULL and coalesce &amp; NULLIF
-
-SELECT *
-,IFNULL(product_size,'Unknown') 
-
---replace with another COLUMN
-,IFNULL(product_size, product_qty_type)
-,coalesce(product_size, product_qty_type)
-,coalesce(product_size,product_qty_type,'missing') -- if the first value is null, then the second value, if that is null, then the third value (missing) 
-
-,IFNULL(IFNULL(product_size, product_qty_type),'missing') -- same as above but with two ifnulls
-
-FROM product;
-
-SELECT *
-,coalesce(product_size,'Unknown') -- we aren't successfully handling the blank value
---nullif
-,NULLIF(product_size,'') -- find the values in product_size that &quot;blanks&quot; and set them to null
-,coalesce(NULLIF(product_size,''),'Unknown')
-,coalesce(NULLIF(TRIM(product_size),''),'Unknown') -- a trimmed blank so all white space becomes blank '     ' = ''
-
-FROM product
-
-WHERE NULLIF(product_size,'') IS NULL -- capturing BOTH nulls and blanks at the same time!</sql><sql name="SQL 10">--ROW_NUMBER 
---what product is the highest price per vendor
-
---outer QUERY
-
-SELECT x.*,product_name
-
-FROM (
---inner QUERY
-	SELECT 
-	vendor_id,
-	market_date,
-	product_id,
-	original_price,
-	ROW_NUMBER() OVER(PARTITION BY vendor_id ORDER BY original_price DESC) as price_rank
-
-	FROM vendor_inventory
-) x
-INNER JOIN product p 
-	ON x.product_id = p.product_id
-
-WHERE price_rank = 1;
-
---highest single purchase in a day PER customer 
-
-SELECT * 
-FROM (
-	SELECT 
-	customer_id
-	,product_id
-	,market_date
-	,quantity
-	,quantity*cost_to_customer_per_qty as cost
-	,ROW_NUMBER() OVER(PARTITION BY customer_id ORDER BY quantity*cost_to_customer_per_qty DESC) as sales_rank
-
-	FROM customer_purchases
-) x
-
-
-</sql><sql name="SQL 21">
--- dense_rank vs rank vs row_number
-
-
-DROP TABLE IF EXISTS temp.row_rank_dense;
-
-CREATE TEMP TABLE IF NOT EXISTS temp.row_rank_dense
-(
-emp_id INT,
-salary INT
-);
-
-INSERT INTO temp.row_rank_dense
-VALUES(1,200000),
-        (2,200000),
-        (3, 160000),
-		(4, 120000),
-		(5, 125000),
-		(6, 165000),
-		(7, 230000),
-		(8, 100000),
-		(9, 165000),
-		(10, 100000);
-    
-    	
-SELECT *
-,row_number() OVER(ORDER BY salary desc) as [row_number]
-,rank() OVER(ORDER BY salary desc) as [rank]
-,dense_rank() OVER(ORDER BY salary desc) as [dense_rank]
-
-FROM row_rank_dense</sql><sql name="SQL 22*">
---ntile 4, 5, 100
-
---make quartiles, qunitiles, percentiles
-
-SELECT * 
---,NTILE(4) OVER (PARTITION BY vendor_name ORDER BY sales) as quartiles
---,NTILE(5) OVER (PARTITION BY vendor_name ORDER BY sales) as quantiles
---,NTILE(100) OVER (PARTITION BY vendor_name ORDER BY sales) as percentile
-
-,NTILE(4) OVER (PARTITION BY vendor_name,product_id ORDER BY sales) 
-
-FROM (
-	SELECT 
-	md.market_date
-	,market_day
-	,market_week
-	,vendor_name
-	,product_id
-	,sum(quantity*cost_to_customer_per_qty) as sales
-
-	FROM market_date_info md
-	JOIN customer_purchases cp
-		ON md.market_date = cp.market_date
-	JOIN vendor v
-		ON cp.vendor_id = v.vendor_id
-		
-	GROUP By md.market_date, v.vendor_id
-) x</sql><sql name="SQL 23*">
-DROP TABLE IF EXISTS temp.store1; 
-CREATE TEMP TABLE IF NOT EXISTS temp.store1
-(
-costume TEXT,
-quantity INT
-);
-
-INSERT INTO temp.store1
-VALUES(&quot;tiger&quot;,6),
-        (&quot;elephant&quot;,2),
-        (&quot;princess&quot;, 4);
-
-
-DROP TABLE IF EXISTS temp.store2;
-CREATE TEMP TABLE IF NOT EXISTS temp.store2
-(
-costume TEXT,
-quantity INT
-);
-
-INSERT INTO temp.store2
-VALUES(&quot;tiger&quot;,2),
-	(&quot;dancer&quot;,7),
-	(&quot;superhero&quot;, 5);
-	
-
-
-SELECT costume, quantity
-FROM store1 s1
-LEFT JOIN store2 s2 on s1.costume=s2.costume
-
-SELECT s2.costume,s1.quantity,s2.quantity
-
-</sql><sql name="SQL 24*">
--- INTERSECT / EXCEPT
-
--- products that have been sold (e.g. are in the customer_purchases and product)
-
-SELECT product_id
-FROM customer_purchases
-INTERSECT
-SELECT product_id
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="Farmersmarket.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="browser pragmas query" current="2"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="8651"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="booth" custom_title="0" dock_id="1" table="4,5:mainbooth"/><dock_state state="000000ff00000000fd0000000100000002000005bc0000038efc0100000001fb000000160064006f0063006b00420072006f00770073006500310100000000000005bc0000011e00ffffff000002700000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="booth" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="90"/><column index="2" value="108"/><column index="3" value="300"/><column index="4" value="72"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="assignment2.sql" filename="C:/Users/chait/sql/02_activities/assignments/assignment2.sql">-- Reference to file &quot;C:/Users/chait/sql/02_activities/assignments/assignment2.sql&quot; (not supported by this version) --</sql><sql name="SQL 2*">SELECT 
+product_name || ', ' || product_size || ' (' || product_qty_type || ')'
 FROM product;
 
--- products that have NOT been sold (e.g. are NOT in customer_purchases even though they are in product)
-SELECT product_name, x.product_id
-FROM 
-(
-	SELECT product_id
-	FROM product
-	EXCEPT
-	SELECT product_id
-	FROM customer_purchases
-) x
-JOIN product p on x.product_id = p.product_id;
 
--- sold products that are not in the products table ... not possible
--- NOTHING 
-SELECT product_id
-FROM customer_purchases
-EXCEPT
-SELECT product_id
+SELECT 
+product_name || ', ' || COALESCE(product_size, '') || ' (' || COALESCE(product_qty_type, 'unit') || ')'
+FROM product;
+</sql><sql name="assignment2.sql" filename="C:/Users/chait/sql/02_activities/assignments/assignment2.sql">-- Reference to file &quot;C:/Users/chait/sql/02_activities/assignments/assignment2.sql&quot; (not supported by this version) --</sql><sql name="SQL 4*">SELECT *
 FROM product
+WHERE product_size IS NULL
+   OR product_qty_type IS NULL;
+
+   
+   SELECT 
+    product_name || ', ' || 
+    COALESCE(product_size, '') || 
+    ' (' || COALESCE(product_qty_type, 'unit') || ')'
+AS product_details
+FROM product;
+
+</sql><sql name="SQL 5*">SELECT 
+    product_name || ', ' || 
+    COALESCE(product_size, '') || 
+    ' (' || COALESCE(product_qty_type, 'unit') || ')'
+AS product_details
+FROM product;
+</sql><sql name="SQL 6*">SELECT 
+    product_name || ', ' || COALESCE(product_size, '') || 
+    ' (' || COALESCE(product_qty_type, 'unit') || ')'
+FROM product;
+</sql><sql name="SQL 7*">SELECT 
+    product_name || ', ' || COALESCE(product_size, '') || 
+    ' (' || COALESCE(product_qty_type, 'unit') || ')'
+AS product_details
+FROM product;
+</sql><sql name="SQL 8*">
+/* SECTION 3 */
+
+-- Cross Join
+/*1. Suppose every vendor in the `vendor_inventory` table had 5 of each of their products to sell to **every** 
+customer on record. How much money would each vendor make per product? 
+Show this by vendor_name and product name, rather than using the IDs.
+
+HINT: Be sure you select only relevant columns and rows. 
+Remember, CROSS JOIN will explode your table rows, so CROSS JOIN should likely be a subquery. 
+Think a bit about the row counts: how many distinct vendors, product names are there (x)?
+How many customers are there (y). 
+Before your final group by you should have the product of those two queries (x*y).  */
+
+SELECT 
+    v.vendor_name,
+    vi.product_name,
+    vi.price_to_customer * 5 AS revenue_per_customer,
+    c.customer_name
+FROM vendor_inventory vi
+JOIN vendor v ON vi.vendor_id = v.vendor_id
+CROSS JOIN customer c
+ORDER BY v.vendor_name, vi.product_name, c.customer_name;
 
 
-</sql><current_tab id="13"/></tab_sql></sqlb_project>
+
+-- INSERT
+/*1.  Create a new table &quot;product_units&quot;. 
+This table will contain only products where the `product_qty_type = 'unit'`. 
+It should use all of the columns from the product table, as well as a new column for the `CURRENT_TIMESTAMP`.  
+Name the timestamp column `snapshot_timestamp`. */
+
+CREATE TABLE product_units AS
+SELECT 
+    *,
+    CURRENT_TIMESTAMP AS snapshot_timestamp
+FROM product
+WHERE product_qty_type = 'unit';
+
+
+
+/*2. Using `INSERT`, add a new row to the product_units table (with an updated timestamp). 
+This can be any product you desire (e.g. add another record for Apple Pie). */
+
+INSERT INTO product_units (
+    product_name,
+    product_qty_type,
+    price_to_customer,
+    snapshot_timestamp
+)
+VALUES (
+    'Apple Pie',        -- product_name
+    'unit',             -- product_qty_type
+    12.99,              -- price_to_customer
+    CURRENT_TIMESTAMP   -- snapshot_timestamp
+);
+
+
+
+-- DELETE
+/* 1. Delete the older record for the whatever product you added. 
+
+HINT: If you don't specify a WHERE clause, you are going to have a bad time.*/
+
+DELETE FROM product_units
+WHERE product_name = 'Apple Pie'
+  AND snapshot_timestamp &lt; (
+      SELECT MAX(snapshot_timestamp)
+      FROM product_units
+      WHERE product_name = 'Apple Pie'
+  );
+
+
+-- UPDATE
+/* 1.We want to add the current_quantity to the product_units table. 
+First, add a new column, current_quantity to the table using the following syntax.
+
+ALTER TABLE product_units
+ADD current_quantity INT;
+
+Then, using UPDATE, change the current_quantity equal to the last quantity value from the vendor_inventory details.
+
+HINT: This one is pretty hard. 
+First, determine how to get the &quot;last&quot; quantity per product. 
+Second, coalesce null values to 0 (if you don't have null values, figure out how to rearrange your query so you do.) 
+Third, SET current_quantity = (...your select statement...), remembering that WHERE can only accommodate one column. 
+Finally, make sure you have a WHERE statement to update the right row, 
+	you'll need to use product_units.product_id to refer to the correct row within the product_units table. 
+When you have all of these components, you can run the update statement. */
+
+
+
+ALTER TABLE product_units
+ADD current_quantity INT;
+
+SELECT product_id,
+       quantity
+FROM vendor_inventory v1
+WHERE updated_at = (
+    SELECT MAX(updated_at)
+    FROM vendor_inventory v2
+    WHERE v2.product_id = v1.product_id
+);
+
+UPDATE product_units pu
+SET current_quantity = (
+    SELECT COALESCE(v.quantity, 0)
+    FROM vendor_inventory v
+    WHERE v.product_id = pu.product_id
+    ORDER BY v.updated_at DESC
+    LIMIT 1
+)
+WHERE pu.product_qty_type = 'unit';
+
+</sql><current_tab id="7"/></tab_sql></sqlb_project>
