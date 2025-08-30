@@ -55,8 +55,24 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 
 ```
 Your answer...
-```
 
+I have uploaded the Flowchart for Section - 1
+
+Answer for Promt -3 
+
+If the product table has:
+
+product_name	product_size	product_qty_type
+Apple Pie	         10"	       unit
+Sweet Potatoes	    NULL	       NULL
+
+Then the query gives:
+
+product_string
+Apple Pie, 10" (unit)
+Sweet Potatoes, (unit)
+```
+![alt text](<Flowchart for Section - 01.png>)
 ***
 
 ## Section 2:

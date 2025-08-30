@@ -301,6 +301,7 @@ FROM customer_purchases;
 SELECT 
     product_name || ', ' || COALESCE(product_size, '') || 
     ' (' || COALESCE(product_qty_type, 'unit') || ')'
+<<<<<<< HEAD
 FROM product;
 
 # Answer for Promt -3 
@@ -316,3 +317,6 @@ Then the query gives:
 product_string
 Apple Pie, 10" (unit)
 Sweet Potatoes, (unit)
+=======
+FROM product;
+>>>>>>> f688983be7cc9cd500338494f90e5db8b64f1e85
