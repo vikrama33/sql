@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="Farmersmarket.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="browser pragmas query" current="2"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="8651"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="booth" custom_title="0" dock_id="1" table="4,5:mainbooth"/><dock_state state="000000ff00000000fd0000000100000002000005bc0000038efc0100000001fb000000160064006f0063006b00420072006f00770073006500310100000000000005bc0000011e00ffffff000002700000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="booth" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="90"/><column index="2" value="108"/><column index="3" value="300"/><column index="4" value="72"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="assignment2.sql" filename="C:/Users/chait/sql/02_activities/assignments/assignment2.sql">-- Reference to file &quot;C:/Users/chait/sql/02_activities/assignments/assignment2.sql&quot; (not supported by this version) --</sql><sql name="SQL 2*">SELECT 
+product_name || ', ' || product_size || ' (' || product_qty_type || ')'
+FROM product;
+
+
+SELECT 
+product_name || ', ' || COALESCE(product_size, '') || ' (' || COALESCE(product_qty_type, 'unit') || ')'
+FROM product;
+</sql><sql name="assignment2.sql" filename="C:/Users/chait/sql/02_activities/assignments/assignment2.sql">-- Reference to file &quot;C:/Users/chait/sql/02_activities/assignments/assignment2.sql&quot; (not supported by this version) --</sql><sql name="SQL 4*">SELECT *
+FROM product
+WHERE product_size IS NULL
+   OR product_qty_type IS NULL;
+
+   
+   SELECT 
+    product_name || ', ' || 
+    COALESCE(product_size, '') || 
+    ' (' || COALESCE(product_qty_type, 'unit') || ')'
+AS product_details
+FROM product;
+
+</sql><sql name="SQL 5*">SELECT 
+    product_name || ', ' || 
+    COALESCE(product_size, '') || 
+    ' (' || COALESCE(product_qty_type, 'unit') || ')'
+AS product_details
+FROM product;
+</sql><sql name="SQL 6*">SELECT 
+    product_name || ', ' || COALESCE(product_size, '') || 
+    ' (' || COALESCE(product_qty_type, 'unit') || ')'
+FROM product;
+</sql><sql name="SQL 7*">SELECT 
+    product_name || ', ' || COALESCE(product_size, '') || 
+    ' (' || COALESCE(product_qty_type, 'unit') || ')'
+AS product_details
+FROM product;
+</sql><sql name="SQL 8*">
+/* SECTION 3 */
+
+-- Cross Join
+/*1. Suppose every vendor in the `vendor_inventory` table had 5 of each of their products to sell to **every** 
+customer on record. How much money would each vendor make per product? 
+Show this by vendor_name and product name, rather than using the IDs.
+
+HINT: Be sure you select only relevant columns and rows. 
+Remember, CROSS JOIN will explode your table rows, so CROSS JOIN should likely be a subquery. 
+Think a bit about the row counts: how many distinct vendors, product names are there (x)?
+How many customers are there (y). 
+Before your final group by you should have the product of those two queries (x*y).  */
+
+SELECT 
+    v.vendor_name,
+    vi.product_name,
+    vi.price_to_customer * 5 AS revenue_per_customer,
+    c.customer_name
+FROM vendor_inventory vi
+JOIN vendor v ON vi.vendor_id = v.vendor_id
+CROSS JOIN customer c
+ORDER BY v.vendor_name, vi.product_name, c.customer_name;
+
+
+
+-- INSERT
+/*1.  Create a new table &quot;product_units&quot;. 
+This table will contain only products where the `product_qty_type = 'unit'`. 
+It should use all of the columns from the product table, as well as a new column for the `CURRENT_TIMESTAMP`.  
+Name the timestamp column `snapshot_timestamp`. */
+
+CREATE TABLE product_units AS
+SELECT 
+    *,
+    CURRENT_TIMESTAMP AS snapshot_timestamp
+FROM product
+WHERE product_qty_type = 'unit';
+
+
+
+/*2. Using `INSERT`, add a new row to the product_units table (with an updated timestamp). 
+This can be any product you desire (e.g. add another record for Apple Pie). */
+
+INSERT INTO product_units (
+    product_name,
+    product_qty_type,
+    price_to_customer,
+    snapshot_timestamp
+)
+VALUES (
+    'Apple Pie',        -- product_name
+    'unit',             -- product_qty_type
+    12.99,              -- price_to_customer
+    CURRENT_TIMESTAMP   -- snapshot_timestamp
+);
+
+
+
+-- DELETE
+/* 1. Delete the older record for the whatever product you added. 
+
+HINT: If you don't specify a WHERE clause, you are going to have a bad time.*/
+
+DELETE FROM product_units
+WHERE product_name = 'Apple Pie'
+  AND snapshot_timestamp &lt; (
+      SELECT MAX(snapshot_timestamp)
+      FROM product_units
+      WHERE product_name = 'Apple Pie'
+  );
+
+
+-- UPDATE
+/* 1.We want to add the current_quantity to the product_units table. 
+First, add a new column, current_quantity to the table using the following syntax.
+
+ALTER TABLE product_units
+ADD current_quantity INT;
+
+Then, using UPDATE, change the current_quantity equal to the last quantity value from the vendor_inventory details.
+
+HINT: This one is pretty hard. 
+First, determine how to get the &quot;last&quot; quantity per product. 
+Second, coalesce null values to 0 (if you don't have null values, figure out how to rearrange your query so you do.) 
+Third, SET current_quantity = (...your select statement...), remembering that WHERE can only accommodate one column. 
+Finally, make sure you have a WHERE statement to update the right row, 
+	you'll need to use product_units.product_id to refer to the correct row within the product_units table. 
+When you have all of these components, you can run the update statement. */
+
+
+
+ALTER TABLE product_units
+ADD current_quantity INT;
+
+SELECT product_id,
+       quantity
+FROM vendor_inventory v1
+WHERE updated_at = (
+    SELECT MAX(updated_at)
+    FROM vendor_inventory v2
+    WHERE v2.product_id = v1.product_id
+);
+
+UPDATE product_units pu
+SET current_quantity = (
+    SELECT COALESCE(v.quantity, 0)
+    FROM vendor_inventory v
+    WHERE v.product_id = pu.product_id
+    ORDER BY v.updated_at DESC
+    LIMIT 1
+)
+WHERE pu.product_qty_type = 'unit';
+
+</sql><current_tab id="7"/></tab_sql></sqlb_project>
